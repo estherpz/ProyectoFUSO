@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+    <title>Compare Execution Times</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Compare Execution Times: Sequential vs Parallel</h1>
+        <form method="post">
+            <div class="form-group">
+                <label for="n_rows">Number of Rows:</label>
+                <input type="text" class="form-control" id="n_rows" name="n_rows" required>
+            </div>
+            <div class="form-group">
+                <label for="n_cols">Number of Columns (Max 10):</label>
+                <input type="text" class="form-control" id="n_cols" name="n_cols" required>
+            </div>
+            <div class="form-group">
+                <label for="n_classes">Number of Classes:</label>
+                <input type="text" class="form-control" id="n_classes" name="n_classes" required>
+            </div>
+            <div class="form-group">
+                <label for="train_size">Train Size:</label>
+                <input type="text" class="form-control" id="train_size" name="train_size" required>
+            </div>
+            <div class="form-group">
+                <label for="test_size">Test Size:</label>
+                <input type="text" class="form-control" id="test_size" name="test_size" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Compare Execution</button>
+        </form>
+    </div>
+</body>
+</html>

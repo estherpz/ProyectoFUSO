@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+<head>
+    <title>Model Results</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Model Results</h1>
+        <p><strong>Dataset:</strong> {{ dataset }}</p>
+        <p><strong>Model:</strong> {{ model }}</p>
+        <p><strong>Train Size:</strong> {{ train_size }}</p>
+        <p><strong>Test Size:</strong> {{ test_size }}</p>
+        <p><strong>Accuracy:</strong> {{ accuracy }}</p>
+        <p><strong>Error:</strong> {{ error }}</p>
+        <img src="{{ img_url }}" alt="Results">
+    </div>
+</body>
+</html>

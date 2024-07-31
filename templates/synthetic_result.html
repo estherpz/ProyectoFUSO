@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+<head>
+    <title>Synthetic Dataset Results</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Synthetic Dataset Results</h1>
+        <p><strong>Number of Rows:</strong> {{ n_rows }}</p>
+        <p><strong>Number of Columns:</strong> {{ n_cols }}</p>
+        <p><strong>Number of Classes:</strong> {{ n_classes }}</p>
+        <p><strong>Train Size:</strong> {{ train_size }}</p>
+        <p><strong>Test Size:</strong> {{ test_size }}</p>
+        <p><strong>Model:</strong> {{ model }}</p>
+        <p><strong>Accuracy:</strong> {{ accuracy }}</p>
+        <p><strong>Error:</strong> {{ error }}</p>
+        <p><strong>Execution Time:</strong> {{ execution_time }} seconds</p>
+        <img src="{{ img_url }}" alt="Results">
+    </div>
+</body>
+</html>
