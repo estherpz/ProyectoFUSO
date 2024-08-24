@@ -12,6 +12,7 @@ This project is a framework for running machine learning models and displaying g
 - `static/`: Directory to store static files, such as generated images.
 - `main.py`: Main code to execute the application.
 - `generate_maps.py`: Code to generate maps in order to visualize them.
+- `generate_individual_maps.py`: Code to generate maps (for users) in order to visualize them.
 
 ## Installation
 
