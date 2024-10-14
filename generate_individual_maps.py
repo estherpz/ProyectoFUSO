@@ -56,7 +56,7 @@ def generate_route(user_id, city_name, input_file, output_html):
         return
 
     # Convert the timestamp column to datetime format, accounting for the "Z" suffix
-    user_data['timestamp'] = pd.to_datetime(user_data['timestamp'], format='%Y-%m-%dT%H:%M:%SZ')
+    user_data.loc[:, 'timestamp'] = pd.to_datetime(user_data['timestamp'], format='%Y-%m-%dT%H:%M:%SZ')
 
     # Sort the data by timestamp
     user_data = user_data.sort_values('timestamp')
