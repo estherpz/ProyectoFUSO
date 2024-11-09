@@ -15,6 +15,9 @@ import seaborn as sns
 from memory_profiler import memory_usage, profile
 import time
 import multiprocessing as mp
+import random
+from multiprocessing import Pool
+from typing import List
 
 matplotlib.use('agg')
 
@@ -245,6 +248,31 @@ def train_model_on_data(model_name: str, X_train: np.ndarray, X_test: np.ndarray
     return accuracy, error
 
 
+def multiplica_matrices(A: np.ndarray, B: np.ndarray) ->np.ndarray:
+    m_a = len(A[0])
+    n_a = len(A[1])
+    n_b = len(B[0])
+    p_b = len(B[1])
+  
+    if n_a == n_b:
+        C = np.empty((m_a, n_a))
+        for i in range(0, m_a):
+            c_i = C[i]
+            for k in range(0, n_a):
+                b_k = B[k]
+                a_i_k = A[i][k]
+                for j in range(0, p_b):
+                    c_i[j] += a_i_k*b_k[j]
+        return C
+    
+def genera_matriz_aleatoria(tam) ->np.ndarray:
+    return np.random.random((tam, tam))
+
+def puente(tamaño: list):
+    A = genera_matriz_aleatoria(tamaño)
+    B = genera_matriz_aleatoria(tamaño)
+    C = multiplica_matrices(A, B)
+
 def compare_execution() -> Tuple[float, float]:
     """
     Compare execution time of sequential vs parallel processing for training models on a synthetic dataset.
@@ -255,10 +283,20 @@ def compare_execution() -> Tuple[float, float]:
     sequential_time = 0
     parallel_time = 0
     matrix_sizes = [310, 210, 400, 160]
+    
     ##CODE FOR STUDENTS
+    inicio_sequential = time.time()
+    for tamano in matrix_sizes:
+        puente(tamano)
+    fin_sequential = time.time()
+    sequential_time += fin_sequential-inicio_sequential
 
 
-
+    inicio_parallel = time.time()
+    p = Pool(2)
+    p.map(puente, matrix_sizes)
+    fin_parallel = time.time()
+    parallel_time += fin_parallel -inicio_parallel
     # END CODE FOR STUDENTS
 
-    return sequential_time, parallel_time
+    return (sequential_time, parallel_time)
